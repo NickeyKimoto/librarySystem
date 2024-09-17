@@ -15,7 +15,7 @@ import jakarta.transaction.Transactional;
 *クラス名：UserService
 *概要：リポジトリの機能を実際に使用するクラス
 *作成者：N.Kimoto
-*作成日：2024/09/
+*作成日：2024/09/15
 */
 @Service
 public class UserService {
@@ -29,7 +29,7 @@ public class UserService {
 	*引数：userRepository UserRepository ユーザーリポジトリのクラスインスタンス
 	*戻り値：なし
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Autowired
 	public UserService(UserRepository userRepository) {
@@ -45,7 +45,7 @@ public class UserService {
 	*引数：なし
 	*戻り値：allUser List<User> 全てのユーザー
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public List<User> getAllUser() {
@@ -64,7 +64,7 @@ public class UserService {
 	*引数：searchWord String 検索ワード
 	*戻り値：searchResult List<User> 検索結果
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public List<User> searchUser(String searchWord) {
@@ -83,7 +83,7 @@ public class UserService {
 	*引数：newData User 保存するユーザー
 	*戻り値：addedUser User 保存したユーザー
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public User saveUser(User newData) {
@@ -102,7 +102,7 @@ public class UserService {
 	*引数：searchId String 取得するデータの利用者コード
 	*戻り値：selectedData Optional<User> 取得したデータ
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public Optional<User> getUserById(String searchId) {
@@ -121,7 +121,7 @@ public class UserService {
 	*引数：deleteUserId String 削除するユーザーの利用者コード
 	*戻り値：なし
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public void deleteUser(String deleteUserId) {

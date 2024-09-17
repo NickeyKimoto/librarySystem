@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ホーム画面</title>
+</head>
+<body>
+
+	<!-- 図書館システムの見出し -->
+	<h1>図書館システム</h1>
+
+	<!-- 書誌貸出画面に遷移する -->
+	<form th:action="@{/bookPage}" method="get">
+	
+		<!-- 書誌貸出ボタン -->
+		<button type="submit">書誌貸出画面</button>
+		
+	</form>
+
+	<!-- ユーザー画面に遷移する -->
+	<form th:action="@{/userPage}" method="get">
+	
+		<!-- ユーザーボタン -->
+		<button type="submit">ユーザー画面</button>
+	
+	</form>
+
+</body>
+</html>

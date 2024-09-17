@@ -10,7 +10,7 @@ import com.example.demo.Model.Rental;
 *インターフェース名：RentalRepository
 *概要：DBを操作できるようにするインターフェース
 *作成者：N.Kimoto
-*作成日：2024/09/
+*作成日：2024/09/15
 */
 public interface RentalRepository extends JpaRepository<Rental, Integer> {
 	
@@ -19,7 +19,7 @@ public interface RentalRepository extends JpaRepository<Rental, Integer> {
 	*概要：貸出記録を曖昧検索する
 	*引数：searchWord String 検索ワード
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	List<Rental> findByNameContaining(String searchWord);
 

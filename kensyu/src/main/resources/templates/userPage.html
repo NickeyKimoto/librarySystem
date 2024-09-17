@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー画面</title>
+</head>
+<body>
+
+	<!-- ユーザー画面の見出し -->
+	<h1>ユーザー画面</h1>
+	<!-- ユーザー情報の見出し -->
+	<h2>ユーザー情報</h2>
+
+	<!-- ユーザー情報一覧表 -->
+	<table>
+	
+		<!-- 表の見出し -->
+		<tr>
+		
+			<!-- カラム名1 -->
+			<th>利用者コード</th>
+			<!-- カラム名2 -->
+			<th>利用者苗字</th>
+			<!-- カラム名3 -->
+			<th>利用者名前</th>
+			<!-- カラム名4 -->
+			<th>住所の都道府県</th>
+			<!-- カラム名5 -->
+			<th>住所の市町村</th>
+			<!-- カラム名6 -->
+			<th>その他の住所</th>
+		
+		</tr>
+	
+		<!-- 表本体 -->
+		<tr th:each="user:${listUser}">
+		
+			<!-- 利用者コード -->
+			<td th:text="${user.userId}"></td>
+			<!-- 利用者苗字 -->
+			<td th:text="${user.lastName}"></td>
+			<!-- 利用者名前 -->
+			<td th:text="${user.firstName}"></td>
+			<!-- 住所の都道府県 -->
+			<td th:text="${user.prefectureAddress}"></td>
+			<!-- 住所の市町村 -->
+			<td th:text="${user.cityAddress}"></td>
+			<!-- その他の住所 -->
+			<td th:text="${user.otherAddress}"></td>
+		
+			<!-- 削除ボタン -->
+			<td>
+			
+				<!-- ユーザー画面に遷移する -->
+				<form th:action="@{/deleteUser/{userId}(userId=${user.userId})}"
+					method="get">
+				
+					<!-- 削除ボタン -->
+					<button type="submit">削除</button>
+				
+				</form>
+			
+			</td>
+		
+		</tr>
+	
+	</table>
+
+	<!-- 検索フォーム -->
+	<form th:action="@{/searchUserPage}" method="get">
+	
+		<!-- 入力欄 -->
+		<input type="text" name="searchWord" placeholder="検索キーワードを入力して下さい">
+		<!-- 検索ボタン -->
+		<button type="submit">検索</button>
+	
+	</form>
+
+	<!-- ユーザー追加フォーム -->
+	<form action="#" th:action="@{/addUser}" th:object="${User}"
+		method="post">
+	
+		<!-- ラベル -->
+		<label for="userId">利用者コード</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{userId}" id="userId">
+		<!-- ラベル -->
+		<label for="lastName">利用者苗字</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{lastName}" id="lastName">
+		<!-- ラベル -->
+		<label for="firstName">利用者名前</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{firstName}" id="firstName">
+		<!-- ラベル -->
+		<label for="prefectureAddress">住所の都道府県</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{prefectureAddress}"
+			id="prefectureAddress">
+		<!-- ラベル -->
+		<label for="cityAddress">住所の市町村</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{cityAddress}" id="cityAddress">
+		<!-- ラベル -->
+		<label for="otherAddress">その他の住所</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{otherAddress}" id="otherAddress">
+	
+		<!-- 追加ボタン -->
+		<input type="submit" value="追加">
+	
+	</form>
+
+	<!-- ホーム画面に遷移する -->
+	<form th:action="@{/}" method="get">
+	
+		<!-- ホームボタン -->
+		<button type="submit">ホーム画面</button>
+	
+	</form>
+
+</body>
+</html>

@@ -15,7 +15,7 @@ import jakarta.transaction.Transactional;
 *クラス名：RentalService
 *概要：リポジトリの機能を実際に使用するクラス
 *作成者：N.Kimoto
-*作成日：2024/09/
+*作成日：2024/09/15
 */
 @Service
 public class RentalService {
@@ -29,7 +29,7 @@ public class RentalService {
 	*引数：rentalRepository RentalRepository 貸出記録リポジトリのクラスインスタンス
 	*戻り値：なし
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Autowired
 	public RentalService(RentalRepository rentalRepository) {
@@ -45,7 +45,7 @@ public class RentalService {
 	*引数：なし
 	*戻り値：allRental List<Rental> 全ての貸出記録
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public List<Rental> getAllRental() {
@@ -64,7 +64,7 @@ public class RentalService {
 	*引数：searchWord String 検索ワード
 	*戻り値：searchResult List<Rental> 検索結果
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public List<Rental> searchRental(String searchWord) {
@@ -83,7 +83,7 @@ public class RentalService {
 	*引数：newData Rental 保存する貸出記録
 	*戻り値：addedRental Rental 保存した貸出記録
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public Rental saveRental(Rental newData) {
@@ -102,7 +102,7 @@ public class RentalService {
 	*引数：searchId int 取得するデータの貸出ID
 	*戻り値：selectedData Optional<Rental> 取得したデータ
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public Optional<Rental> getRentalById(int searchId) {

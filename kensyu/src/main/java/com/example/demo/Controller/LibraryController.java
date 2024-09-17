@@ -22,7 +22,7 @@ import com.example.demo.Service.UserService;
 *クラス名：LibraryController
 *概要：リクエストを受け取り、適切な処理を実行してレスポンスを返す
 *作成者：N.Kimoto
-*作成日：2024/09/
+*作成日：2024/09/16
 */
 @Controller
 public class LibraryController {
@@ -42,7 +42,7 @@ public class LibraryController {
 	*      userService UserService ユーザーサービスのクラスインスタンス
 	*戻り値：なし
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@Autowired
 	public LibraryController(BookService bookService, RentalService rentalService, UserService userService) {
@@ -62,7 +62,7 @@ public class LibraryController {
 	*引数：なし
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@GetMapping("/")
 	public String homePage() {
@@ -81,7 +81,7 @@ public class LibraryController {
 	*      rentalModel Model ビューへ受け渡す貸出記録
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@GetMapping("/bookPage")
 	public String bookPage(Model bookModel, Model rentalModel) {
@@ -111,7 +111,7 @@ public class LibraryController {
 	*      bookModel Model ビューへ受け渡す書籍情報
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@GetMapping("/searchBookPage")
 	public String searchBookPage(@RequestParam("searchWord") String searchWord, Model bookModel) {
@@ -137,7 +137,7 @@ public class LibraryController {
 	*      rentalModel Model ビューへ受け渡す貸出記録
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@GetMapping("/searchRentalPage")
 	public String searchRentalPage(@RequestParam("searchWord") String searchWord, Model rentalModel) {
@@ -162,7 +162,7 @@ public class LibraryController {
 	*引数：newData Rental 追加する貸出記録
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@PostMapping("/addRental")
 	public String addRental(@ModelAttribute("Rental") Rental newData) {
@@ -185,7 +185,7 @@ public class LibraryController {
 	*      rentalModel Model 取得した貸出記録
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@GetMapping("/editRentalPage/{rentalId}")
 	public String editRentalPage(@PathVariable(value = "rentalId") int rentalId, Model rentalModel) {
@@ -210,7 +210,7 @@ public class LibraryController {
 	*引数：userModel Model ビューへ受け渡すユーザー
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@GetMapping("/userPage")
 	public String userPage(Model userModel) {
@@ -236,7 +236,7 @@ public class LibraryController {
 	*      userModel Model ビューへ受け渡すユーザー
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@GetMapping("/searchUserPage")
 	public String searchUserPage(@RequestParam("searchWord") String searchWord, Model userModel) {
@@ -261,7 +261,7 @@ public class LibraryController {
 	*引数：newData User 追加するユーザー
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@PostMapping("/addUser")
 	public String addUser(@ModelAttribute("User") User newData) {
@@ -283,7 +283,7 @@ public class LibraryController {
 	*引数：userId String 削除するユーザーのユーザーID
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/16
 	*/
 	@GetMapping("/deleteUser/{userId}")
 	public String deleteUser(@PathVariable(value = "userId") String userId) {

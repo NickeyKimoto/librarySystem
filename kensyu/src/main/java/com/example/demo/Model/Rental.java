@@ -17,7 +17,7 @@ import lombok.Data;
 *クラス名：Rental
 *概要：貸出記録のエンティティクラス
 *作成者：N.Kimoto
-*作成日：2024/09/
+*作成日：2024/09/15
 */
 
 @Entity

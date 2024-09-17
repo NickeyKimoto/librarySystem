@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 *クラス名：GlobalControllAdvice
 *概要：アプリケーション全体で発生した例外処理を実装したクラス
 *作成者：N.Kimoto
-*作成日：2024/09/
+*作成日：2024/09/17
 */
 @ControllerAdvice
 @Component
@@ -24,7 +24,7 @@ public class GlobalControllAdvice {
 	*      errorModel Model ビューへ受け渡す例外情報
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/17
 	*/
 	@ExceptionHandler(DataAccessException.class)
 	public String dataAccessExceptionHandler(DataAccessException occurredException, Model errorModel) {
@@ -53,7 +53,7 @@ public class GlobalControllAdvice {
 	*      errorModel Model ビューへ受け渡す例外情報
 	*戻り値：displayScreen String 画面のHTMLファイル名
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/17
 	*/
 	@ExceptionHandler(Exception.class)
 	public String exceptionHandler(Exception occurredException, Model errorModel) {

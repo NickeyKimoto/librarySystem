@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>書誌貸出画面</title>
+</head>
+<body>
+
+	<!-- 書誌貸出画面の見出し -->
+	<h1>書誌貸出画面</h1>
+	<!-- 書籍情報の見出し -->
+	<h2>書籍情報</h2>
+
+	<!-- 書籍情報一覧表 -->
+	<table>
+	
+		<!-- 表の見出し -->
+		<tr>
+		
+			<!-- カラム名1 -->
+			<th>ISBNコード</th>
+			<!-- カラム名2 -->
+			<th>本のタイトル</th>
+			<!-- カラム名3 -->
+			<th>出版社名</th>
+			<!-- カラム名4 -->
+			<th>分類ID</th>
+		
+		</tr>
+	
+		<!-- 表本体 -->
+		<tr th:each="book:${listBooks}">
+		
+			<!-- ISBNコード -->
+			<td th:text="${book.isbnId}"></td>
+			<!-- 本のタイトル -->
+			<td th:text="${book.bookTitle}"></td>
+			<!-- 出版社名 -->
+			<td th:text="${book.publisherName}"></td>
+			<!-- 分類ID -->
+			<td th:text="${categoryId}"></td>
+		
+		</tr>
+	
+	</table>
+
+	<!-- 検索フォーム -->
+	<form th:action="@{/searchBookPage}" method="get">
+	
+		<!-- 入力欄 -->
+		<input type="text" name="searchWord" placeholder="検索キーワードを入力して下さい">
+		<!-- 検索ボタン -->
+		<button type="submit">検索</button>
+	
+	</form>
+
+	<!-- 貸出記録の見出し -->
+	<h2>貸出記録</h2>
+
+	<!-- 貸出記録一覧表 -->
+	<table>
+	
+		<!-- 表の見出し -->
+		<tr>
+		
+			<!-- カラム名1 -->
+			<th>貸出ID</th>
+			<!-- カラム名2 -->
+			<th>利用者コード</th>
+			<!-- カラム名3 -->
+			<th>ISBNコード</th>
+			<!-- カラム名4 -->
+			<th>貸出日</th>
+			<!-- カラム名5 -->
+			<th>返却状況</th>
+		
+		</tr>
+	
+		<!-- 表本体 -->
+		<tr th:each="rental:${listRental}">
+		
+			<!-- 貸出ID -->
+			<td th:text="${rental.rentalId}"></td>
+			<!-- 利用者コード -->
+			<td th:text="${rental.userId}"></td>
+			<!-- ISBNコード -->
+			<td th:text="${rental.isbnId}"></td>
+			<!-- 貸出日 -->
+			<td th:text="${rental.rentalDate}"></td>
+			<!-- 返却状況 -->
+			<td th:text="${rental.isReturned}"></td>
+		
+			<!-- 編集ボタン -->
+			<td>
+			
+				<!-- 貸出記録編集画面に遷移する -->
+				<form th:action="@{/editRentalPage/{rentalId}}" method="get">
+				
+					<!-- 編集ボタン -->
+					<button type="submit">編集</button>
+				
+				</form>
+			
+			</td>
+		
+		</tr>
+	
+	</table>
+
+	<!-- 検索フォーム -->
+	<form th:action="@{/searchRentalPage}" method="get">
+	
+		<!-- 入力欄 -->
+		<input type="text" name="searchWord" placeholder="検索キーワードを入力して下さい">
+		<!-- 検索ボタン -->
+		<button type="submit">検索</button>
+	
+	</form>
+
+	<!-- 貸出記録追加フォーム -->
+	<form action="#" th:action="@{/addRental}" th:object="${Rental}"
+		method="post">
+	
+		<!-- ラベル -->
+		<label for="userId">利用者コード</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{userId}" id="userId">
+		<!-- ラベル -->
+		<label for="isbnId">ISBNコード</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{isbnId}" id="isbnId">
+		<!-- ラベル -->
+		<label for="rentalDate">貸出日</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{rentalDate}" id="rentalDate">
+		<!-- ラベル -->
+		<label for="isReturned">返却状況</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{isReturned}" id="isReturned">
+	
+		<!-- 追加ボタン -->
+		<input type="submit" value="追加">
+	
+	</form>
+
+	<!-- ホーム画面に遷移する -->
+	<form th:action="@{/}" method="get">
+	
+		<!-- ホームボタン -->
+		<button type="submit">ホーム画面</button>
+	
+	</form>
+
+</body>
+</html>

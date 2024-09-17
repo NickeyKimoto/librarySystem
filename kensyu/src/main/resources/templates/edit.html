@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>貸出記録編集画面</title>
+</head>
+<body>
+
+	<!-- 貸出記録編集画面の見出し -->
+	<h1>貸出記録編集画面</h1>
+
+	<!-- 貸出記録一覧表 -->
+	<table>
+	
+		<!-- 表本体 -->
+		<tr th:each="rental:${editRental}">
+		
+			<!-- 貸出ID -->
+			<td th:text="${rentalId}"></td>
+			<!-- 利用者コード -->
+			<td th:text="${userId}"></td>
+			<!-- ISBNコード -->
+			<td th:text="${isbnId}"></td>
+			<!-- 貸出日 -->
+			<td th:text="${rentalDate}"></td>
+			<!-- 返却状況 -->
+			<td th:text="${isReturned}"></td>
+		
+		</tr>
+	
+	</table>
+
+	<!-- 貸出記録更新フォーム -->
+	<form action="#" th:action="@{/addRental}" th:object="${Rental}"
+		method="post">
+	
+		<!-- 入力欄(主キーのため非表示) -->
+		<input type="hidden" th:field="*{rentalId}">
+		<!-- ラベル -->
+		<label for="userId">利用者コード</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{userId}" id="userId">
+		<!-- ラベル -->
+		<label for="isbnId">ISBNコード</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{isbnId}" id="isbnId">
+		<!-- ラベル -->
+		<label for="rentalDate">貸出日</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{rentalDate}" id="rentalDate">
+		<!-- ラベル -->
+		<label for="isReturned">返却状況</label>
+		<!-- 入力欄 -->
+		<input type="text" th:field="*{isReturned}" id="isReturned">
+	
+		<!-- 更新ボタン -->
+		<input type="submit" value="更新">
+	
+	</form>
+
+	<!-- ホーム画面に遷移する -->
+	<form th:action="@{/}" method="get">
+	
+		<!-- ホームボタン -->
+		<button type="submit">ホーム画面</button>
+	
+	</form>
+
+</body>
+</html>

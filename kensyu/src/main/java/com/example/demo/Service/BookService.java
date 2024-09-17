@@ -14,7 +14,7 @@ import jakarta.transaction.Transactional;
 *クラス名：BookService
 *概要：リポジトリの機能を実際に使用するクラス
 *作成者：N.Kimoto
-*作成日：2024/09/
+*作成日：2024/09/15
 */
 @Service
 public class BookService {
@@ -28,7 +28,7 @@ public class BookService {
 	*引数：bookRepository BookRepository 書籍情報リポジトリのクラスインスタンス
 	*戻り値：なし
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Autowired
 	public BookService(BookRepository bookRepository) {
@@ -44,7 +44,7 @@ public class BookService {
 	*引数：なし
 	*戻り値：allBooks List<Book> 全ての書籍情報
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public List<Book> getAllBooks() {
@@ -63,7 +63,7 @@ public class BookService {
 	*引数：searchWord String 検索ワード
 	*戻り値：searchResult List<Book> 検索結果
 	*作成者：N.Kimoto
-	*作成日：2024/09/
+	*作成日：2024/09/15
 	*/
 	@Transactional
 	public List<Book> searchBooks(String searchWord) {
